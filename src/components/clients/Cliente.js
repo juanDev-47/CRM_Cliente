@@ -50,7 +50,7 @@ const Cliente = ({cliente}) => {
 
                         <Link to={`pedidos/nuevo/${_id}`} className="btn btn-azul">
                             <i className="fas fa-plus"/>
-                             Editar Producto
+                             Generar Pedido
                         </Link>
 
                         <button type="button" className="btn btn-rojo btn-eliminar" onClick={() => eliminarCliente(_id)}>

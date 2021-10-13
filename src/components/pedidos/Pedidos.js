@@ -13,14 +13,15 @@ const Pedidos = (props) => {
   const [auth, guardarAuth] = useContext( CRMContext );
 
   useEffect(() => {
-    if(auth.token === '') {
+    if (auth.token !== "") {
       const consultarAPI = async () => {
         try {
           const resultado = await clienteAxios.get("/pedidos", {
             headers: {
               Authorization: `Bearer ${auth.token}`,
-            }
+            },
           });
+          console.log(resultado.data);
     
           guardarPedidos(resultado.data);
         } catch (error) {
@@ -33,11 +34,6 @@ const Pedidos = (props) => {
       props.history.push('/Login')
     }
   }, [pedidos]);
-
-
-  if(!auth.auth) {
-    props.history.push('/Login')
-}
 
 // spinner de carga
     if(!pedidos.length) return <Spinner/>

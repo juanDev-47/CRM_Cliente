@@ -19,11 +19,7 @@ const Productos = (props) => {
         if(auth.token !== '') {
             const consultarApi = async () => {
                 try {
-                    const productosConsulta = await clienteAxios.get('/productos', {
-                        headers: {
-                          Authorization: `Bearer ${auth.token}`,
-                        }
-                      });
+                    const productosConsulta = await clienteAxios.get('/productos');
                     
                     guardarProductos(productosConsulta.data);
                 } catch (error) {
